@@ -1,0 +1,37 @@
+CREATE TABLE tblNewYorkCustomers(ID INT,NAME VARCHAR(250),EMAIL VARCHAR(250));
+CREATE TABLE tblSanFranCustomers(ID INT,NAME VARCHAR(250),EMAIL VARCHAR(250));
+
+INSERT INTO tblNewYorkCustomers VALUES(1,'Steven','s@s.com');
+INSERT INTO tblNewYorkCustomers VALUES(2,'Richard','r@r.com');
+INSERT INTO tblSanFranCustomers VALUES(3,'Mark','m@m.com');
+INSERT INTO tblSanFranCustomers VALUES(4,'Ben','b@b.com');
+
+SELECT * FROM tblNewYorkCustomers;
+SELECT * FROM tblSanFranCustomers;
+
+UPDATE tblSanFranCustomers SET ID = 1 WHERE ID = 3;
+UPDATE tblSanFranCustomers SET ID = 2 WHERE ID = 4;
+
+SELECT * FROM tblNewYorkCustomers
+UNION ALL
+SELECT * FROM tblSanFranCustomers;
+
+SELECT * FROM tblNewYorkCustomers
+UNION
+SELECT * FROM tblSanFranCustomers;
+
+SELECT ID,NAME,EMAIL FROM tblNewYorkCustomers
+UNION
+SELECT ID,NAME,EMAIL FROM tblSanFranCustomers;
+
+SELECT * FROM tblNewYorkCustomers
+UNION ALL
+SELECT * FROM tblSanFranCustomers
+ORDER BY NAME;
+
+SELECT * FROM tblNewYorkCustomers
+UNION ALL
+SELECT * FROM tblSanFranCustomers
+UNION ALL
+SELECT * FROM tblNewYorkCustomers	
+ORDER BY NAME;
